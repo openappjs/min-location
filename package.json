@@ -1,17 +1,21 @@
 {
-  "name": "window-location",
-  "version": "0.0.3",
-  "description": "a window.location mock for testing in node",
-  "main": "window.js",
+  "name": "min-location",
+  "version": "0.0.0",
+  "description": "a minimal browser Location interface for node",
+  "main": "index.js",
   "directories": {
     "test": "test"
   },
   "scripts": {
-    "test": "node ./test/test.js"
+    "test": "tape test"
   },
   "author": "",
   "license": "BSD",
   "devDependencies": {
-    "grape": "~0.1.7"
+    "tape": "^3.0.0"
+  },
+  "dependencies": {
+    "min-event-target": "git://github.com/openappjs/min-event-target",
+    "xtend": "^4.0.0"
   }
 }
