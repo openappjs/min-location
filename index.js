@@ -34,12 +34,25 @@ function Location (win) {
           value = Url.resolve(location.href, value);
         }
 
+        if (prop === 'hash') {
+          var oldUrl = location.href;
+          var oldHash = propValue;
+        }
+
         propValue = value;
         onUpdate(location, prop);
 
         if (prop === 'hash') {
+          if (oldHash === location.hash)
+            return;
+
           var ev = {
+            target: win,
             type: "hashchange",
+            bubbles: true,
+            cancelable: false,
+            oldUrl: oldUrl,
+            newUrl: location.href,
           }
           win.dispatchEvent(ev);
         }
